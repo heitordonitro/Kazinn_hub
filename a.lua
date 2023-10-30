@@ -4852,7 +4852,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
     game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
 
-_G.Color = Color3.fromRGB(255,255,255) 
+_G.Color = Color3.fromRGB(65,105,225) 
 
 local Star = nill:Window("Blox Fruit V 0.0.3")
 
@@ -5028,7 +5028,7 @@ Main:Toggle("Bring Mob",true,function(value)
     _G.BringMonster = value
 end)
 
-Main:Toggle("WhiteScreen",_G.WhiteScreen,function(value)
+Main:Toggle("WhiteScreen",true,function(value)
     _G.WhiteScreen = value
     if _G.WhiteScreen  then
         game:GetService("RunService"):Set3dRenderingEnabled(false)
@@ -5050,9 +5050,9 @@ local AutoFarm = Main:Toggle("Auto Farm Level",_G.AutoFarm,function(value)
         StopTween(_G.AutoFarm)
     end)
     
-local AUTOFARM2 = Main:Toggle("Auto Farm Level[V.2]",_G.AUTOFARM2XD,function(value)
-        _G.AUTOFARM2XD = value
-        StopTween(_G.AUTOFARM2XD)
+local AUTOFARM2 = Main:Toggle("Auto Farm Level[V.2]",_G.AUTOFARM2,function(value)
+        _G.AUTOFARM2 = value
+        StopTween(_G.AUTOFARM2)
     end)
 
 local SelectWeapona = Main:Dropdown("Select Weapon",WeaponList,function(value)
@@ -5138,24 +5138,6 @@ Main:Label("AutoConfetti[Even!!!]")
 Main:Toggle("AutoConfetti",_G.AutoConfetti,function(value)
 _G.AutoConfetti = value
 end)
-
-function TP(Point)
-	local Ply = game.Players.LocalPlayer
-	local Char = Ply.Character
---	repeat
-	Char.Humanoid:ChangeState(15)
-	Char.HumanoidRootPart.CFrame = Point
-	wait()
-	Char.HumanoidRootPart.CFrame = Point
---	until (Char.HumanoidRootPart.Position - Point.Position).Magnitude <= 20
-end
-function BTP(Pos)
-	local Ply = game.Players.LocalPlayer
-	local Char = Ply.Character
-	Char.HumanoidRootPart.CFrame = Pos
-	wait()
-	Char.HumanoidRootPart.CFrame = Pos
-end
 
 spawn(function()
 while task.wait() do
@@ -5650,9 +5632,9 @@ local SelectModeMaterial = Main:Dropdown("SelectMaterial",AllMaterial,function(v
     _G.SelectModeMaterial = value
 end)
 
-Main:Toggle("AutoFarmMaterial",_G.AutoFarmMaterial,function(x)
-		AutoFarmMaterial = x
-		if x == false then
+Main:Toggle("AutoFarmMaterial",_G.AutoFarmMaterial,function(value)
+		AutoFarmMaterial = value
+		if value == false then
 			toTarget(game.Players.LocalPlayer.Character.HumanoidRootPart.Position,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
 		end
 		spawn(function()
@@ -5710,7 +5692,7 @@ Main:Toggle("AutoFarmMaterial",_G.AutoFarmMaterial,function(x)
 								end 
 							end 
 						end
-					end,function(x)
+					end,function(value)
 						print("Auto Farm Material Error : "..x)
 					end)
 				else
