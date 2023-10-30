@@ -5955,7 +5955,7 @@ library.W = library.CreateWindow
 local Wait = library.subs.Wait
 
 local PepsiUi = library:CreateWindow({
-    Name = "MAKO HUB",
+    Name = "KZHUB",
     Theme = {
         Image = "rbxassetid://7483871523",
         Info = "Info",
