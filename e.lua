@@ -3003,16 +3003,12 @@ end)
 
     --------------------------------------------
     
-    local library = loadstring(game:HttpGet("https://pastebin.com/raw/8W527aGg"))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
     local Wait = library.subs.Wait
     
-    local PepsisWorld = library:CreateWindow({
-        Name = "Mako Hub",
-        Themeable = {
-        Info = "Discord Server: Mako Hub"
-        }
-    })
-    
+  local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
     local MainTab = PepsisWorld:CreateTab({
         Name = "General"
     })
