@@ -2,7 +2,7 @@
 --load
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 --windows
-local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "Kz hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Kz hub pasta",IntroEnabled = true,Introtext = "Kz hub"})
 --notification
 OrionLib:MakeNotification({
 	Name = "Logado no kz hub com sucesso!!",
