@@ -2,7 +2,7 @@
 --load
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 --windows
-local Window = OrionLib:MakeWindow({Name = "Kz hub", HidePremium = false, SaveConfig = true, ConfigFolder = "Kz hub pasta",IntroEnabled = true,Introtext = "Kz hub"})
+local Window = OrionLib:MakeWindow({Name = "Kazzin hub", HidePremium = false, SaveConfig = true, ConfigFolder = "KZ hub arquivos",IntroEnabled = true,IntroText = "Kz hub"})
 --notification
 OrionLib:MakeNotification({
 	Name = "Logado no kz hub com sucesso!!",
@@ -1101,22 +1101,168 @@ spawn(function()
         end)
     end)
 end)
+spawn(function()
+    while wait() do 
+        if AutoFarmMaterial then    
+            xpcall(function()
+                if (SelectModeMaterial~="") then 
+                    CheckMaterial(SelectModeMaterial);
+                    if CustomFindFirstChild(MaterialMob) then
+                        for v0,v1 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do 
+                            if (AutoFarmMaterial and table.find(MaterialMob,v1.Name) and v1:FindFirstChild("HumanoidRootPart") and v1:FindFirstChild("Humanoid") and (v1.Humanoid.Health>0)) then 
+                                repeat wait();
+                                    FarmtoTarget=toTarget(v1.HumanoidRootPart.CFrame * CFrame.new(0,30,1));
+                                    if (v1:FindFirstChild("HumanoidRootPart") and v1:FindFirstChild("Humanoid") and ((v1.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude<=150)) then 
+                                        if FarmtoTarget then FarmtoTarget:Stop(); end 
+                                        FastAttack=true;
+                                        EquipWeapon(_G.SelectWeapon);
+                                        spawn(function()for v4,v5 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do 
+                                                if (v5.Name==v1.Name) then 
+                                                    spawn(function()
+                                                        if InMyNetWork(v5.HumanoidRootPart) then 
+                                                            v5.HumanoidRootPart.CFrame = v1.HumanoidRootPart.CFrame;
+                                                            v5.Humanoid.JumpPower=0;
+                                                            v5.Humanoid.WalkSpeed=0;
+                                                            v5.HumanoidRootPart.CanCollide=false;
+                                                            v5.Humanoid:ChangeState(14);
+                                                            v5.Humanoid:ChangeState(11);
+                                                            v5.HumanoidRootPart.Size=Vector3.new(55,55,55);
+                                                        end 
+                                                    end);
+                                                end 
+                                            end 
+                                        end);
+                                        if (game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and (game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value>=150)) then 
+                                            game:service("VirtualInputManager"):SendKeyEvent(true,"V",false,game);
+                                            game:service("VirtualInputManager"):SendKeyEvent(false,"V",false,game);
+                                        end 
+                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v1.HumanoidRootPart.CFrame * CFrame.new(0,30,1);
+                                    end 
+                                until not CustomFindFirstChild(MaterialMob) or not AutoFarmMaterial or (v1.Humanoid.Health<=0) or not v1.Parent FastAttack=false;
+                            end 
+                        end 
+                    else 
+                        FastAttack=false;
+                        Modstween = toTarget(CFrameMon);
+                        if (World1 and (table.find(MaterialMob,"Fishman Commando [Lv. 400]")) and ((CFrameMon.Position-game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude>50000)) then 
+                            if Modstween then Modstween:Stop(); end wait(0.5);game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625,11.6796875,1819.7841796875));
+                        elseif (World1 and not (table.find(MaterialMob,"Fishman Commando [Lv. 400]")) and ((CFrameMon.Position-game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude>50000)) then 
+                            if Modstween then Modstween:Stop();end wait(0.5);game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(3864.8515625,6.6796875, -1926.7841796875));
+                        elseif (World1 and (table.find(MaterialMob,"God's Guard [Lv. 450]")) and ((CFrameMon.Position-game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude>3000)) then 
+                            if Modstween then Modstween:Stop();end wait(0.5);game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new( -4607.8227539063,872.54248046875, -1667.5568847656));
+                        elseif ((CFrameMon.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude<=150) then 
+                            if Modstween then Modstween:Stop();end 
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon;
+                        end 
+                    end 
+                end
+            end,function(value)
+                print("Auto Farm Material Error : "..x)
+            end)
+        else
+            break;
+        end
+    end
+end)
+task.spawn(function()
+    while wait() do
+        pcall(function()
+            if getgenv().AutoBone then
+                if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
+                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                repeat wait()
+                                    StartMagnet = true
+                                    EquipWeapon(_G.SelectWeapon)
+                                    _G.Fast_Attack = true
+                                    PosMon = v.HumanoidRootPart.CFrame
+                                    v.HumanoidRootPart.Size = Vector3.new(160,160,160)
+                                    v.Humanoid.JumpPower = 0
+                                    v.Humanoid.WalkSpeed = 0
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Humanoid:ChangeState(11)
+                                    topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+                                until not getgenv().AutoBone or v.Humanoid.Health <= 0 or not v.Parent or v.Humanoid.Health <= 0
+                                StartMagnet = false
+                                _G.Fast_Attack = true
+                            end
+                        end
+                    end
+                else
+                    topos(CFrame.new(-9504.8564453125, 172.14292907714844, 6057.259765625))
+                end
+            end
+        end)
+    end
+end)
+spawn(function()
+	while wait() do
+		if getgenv().Ectoplasm then
+			pcall(function()
+				if game:GetService("Workspace").Enemies:FindFirstChild("Ship Deckhand [Lv. 1250]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Engineer [Lv. 1275]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Steward [Lv. 1300]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Officer [Lv. 1325]") then
+					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+						if string.find(v.Name, "Ship") then
+							repeat wait()
+								AutoHaki()
+								EquipWeapon(_G.SelectWeapon)
+								PosMonEctoplasm = v.HumanoidRootPart.CFrame
+								v.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(90,90,90)
+								v.Humanoid.JumpPower = 0
+								v.Humanoid.WalkSpeed = 0
+								getgenv().ToTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+								MagnetEctoplasm = true
+								game:GetService'VirtualUser':CaptureController()
+								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+							until getgenv().Ectoplasm == false or not v.Parent or v.Humanoid.Health <= 0
+							MagnetEctoplasm = false
+						else
+							MagnetEctoplasm = false
+							getgenv().ToTarget(CFrame.new(904.4072265625, 181.05767822266, 33341.38671875))
+						end
+					end
+				else
+					MagnetEctoplasm = false
+					local Distance = (Vector3.new(904.4072265625, 181.05767822266, 33341.38671875) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+					if Distance > 20000 then
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+					end
+					getgenv().ToTarget(CFrame.new(904.4072265625, 181.05767822266, 33341.38671875))
+				end
+			end)
+		end
+	end
+end)    
+
 --tab
    local MainTab = Window:MakeTab({
 	Name = "Main",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-local Tab = Window:MakeTab({
+local FarmTab = Window:MakeTab({
 	Name = "Farm",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-local Tab = Window:MakeTab({
+local ItemTab = Window:MakeTab({
 	Name = "Item",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+local BossTab = Window:MakeTab({
+	Name = "Boss",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local StatsTab = Window:MakeTab({
+	Name = "Stats",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
 local RaidTab = Window:MakeTab({
 	Name = "Raid",
 	Icon = "rbxassetid://4483345998",
@@ -1149,7 +1295,7 @@ local MainSection = MainTab:AddSection({
 MainTab:AddDropdown({
 	Name = "Select weapon",
 	Default = "",
-	Options = {"Melee", "Sword","Fruit","Gun"},
+	Options = {"Melee", "Sword"},
 	Callback = function(Value)
         _G.SelectWeapon = value	
 	end    
@@ -1186,18 +1332,60 @@ MainTab:AddToggle({
 	end    
 })
 local Section = FarmTab:AddSection({
-	Name = "Section"
+	Name = "Farm level"
 })
 
-Tab:AddToggle({
+FarmTab:AddToggle({
 	Name = "Auto farm level",
 	Default = false,
 	Callback = function(Value)
         _G.AutoFarm =  value
 	end    
 })
-
-
-
+local Section = FarmTab:AddSection({
+	Name = "Farm material"
+   
+    FarmTab:AddToggle({
+        Name = "Auto farm material",
+        Default = false,
+        Callback = function(Value)
+            AutoFarmMaterial = value
+            if value == false then
+                toTarget(game.Players.LocalPlayer.Character.HumanoidRootPart.Position,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+            end   
+    })
+    FarmTab:AddDropdown({
+        Name = "Select material",
+        Default = "",
+        Options = {"", ""},
+        Callback = function(Value)
+            _G.SelectModeMaterial = value
+        end    
+    })
+FarmTab:AddToggle({
+        Name = "Auto bone",
+        Default = false,
+        Callback = function(Value)
+            getgenv().AutoBone = value
+		StopTween(_G.AutoBone)
+		if value == false then
+			getgenv().ToTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+			getgenv().ToTarget(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+		   topos(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+			topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+			getgenv().AutoBone = false
+        end
+        end 
+    })
+    FarmTab:AddToggle({
+        Name = "Auto Ectoplams",
+        Default = false,
+        Callback = function(Value)
+            getgenv().Ectoplasm = value
+            StopTween(getgenv().Ectoplasm)
+        end  
+    })
+    
+   
 -- ui end
 OrionLib:Init()                                                                                                                                                                                                               
